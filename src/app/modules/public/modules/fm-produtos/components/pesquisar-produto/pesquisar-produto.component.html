@@ -1,0 +1,28 @@
+<h2>Produtos</h2>
+<div class="container-padrao">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <th>{{produto.id}}</th>
+        <th>{{produto.nome}}</th>
+        <td>{{produto.desc}}</td>
+        <td>{{produto.valor | currency: 'BRL': true}}</td>
+        <td>
+          <button class="btn btn-danger btn-sm mr-2">Remover</button>
+          <button class="btn btn-primary btn-sm mr-2">Editar</button>
+          <button class="btn btn-success btn-sm mr-2" [routerLink]="['adicionar']">Inserir</button>
+          <button class="btn btn-primary btn-sm mr-2" onclick="addCarrinho(produto)">Carrinho</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
